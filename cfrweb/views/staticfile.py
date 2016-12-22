@@ -2,7 +2,7 @@ import os
 from aiohttp import web
 import mimetypes
 
-from cfr.config import settings
+from cfrweb.config import settings
 
 
 class StaticFileView(web.View):

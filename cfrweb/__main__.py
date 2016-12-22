@@ -2,7 +2,7 @@ import logging
 
 import aiohttp
 
-from cfr import routes
+from cfrweb import routes
 
 
 def main():
