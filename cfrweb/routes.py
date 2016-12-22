@@ -8,5 +8,5 @@ def get():
 
     return [
         (['GET'], '/', HomeView),
-        (['GET'], '/{filename}', StaticFileView)
+        (['GET'], '/{filename:.*}', StaticFileView)
     ]

@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <title>cfr.ninja</title>
+{% extends 'base.html' %}
 
-        <link rel="icon" href="favicon.ico" sizes="256x256">
-        <link rel="icon" href="favicon.svg" sizes="any" type="image/svg+xml">
-    </head>
-    <body>
-    </body>
-</html>
+{% block content %}
+<div id="search">
+    <form action="/train/"  method="get">
+        <input name="train" type="text" placeholder="Train number" autofocus/>
+        <input type="submit" value="Search"/>
+    </form>
+</div>
+{% endblock %}
