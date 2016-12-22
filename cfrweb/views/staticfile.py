@@ -1,14 +1,17 @@
-import os
-from aiohttp import web
 import mimetypes
+import os
 
-from cfrweb.config import settings
+from aiohttp import web
+
+from ..config import settings
 
 
 class StaticFileView(web.View):
     """Allows loading an arbitrary file from disk."""
 
     async def get(self):
+        """Reply to HTTP GET request."""
+
         filename = self.request.match_info.get('filename')
         filepath = os.path.join(
             settings.STATIC_FILES_DIR,

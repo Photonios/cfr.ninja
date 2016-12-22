@@ -1,8 +1,14 @@
-from aiohttp import web
+from .template import TemplateView
 
 
-class HomeView(web.View):
+class HomeView(TemplateView):
     """Page that is displayed when you open the website."""
 
-    async def get(self):
-        return web.Response(text='Always be yourself. Unless you can be Batman. Then be Batman!')
+    template_name = 'index.html'
+
+    def context(self):
+        """Gets the context for the template."""
+
+        return {
+            'title': 'yellow'
+        }

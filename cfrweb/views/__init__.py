@@ -1,7 +1,9 @@
 from .home import HomeView
+from .template import TemplateView
 from .staticfile import StaticFileView
 
 __all__ = [
-    'home',
-    'staticfile'
+    'HomeView',
+    'TemplateView',
+    'StaticFileView',
 ]

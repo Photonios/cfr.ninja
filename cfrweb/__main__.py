@@ -18,7 +18,7 @@ def main():
         for method in methods:
             resource.add_route(method, handler)
 
-    aiohttp.web.run_app(app)
+    aiohttp.web.run_app(app, port=80)
 
 
 if __name__ == '__main__':
