@@ -24,5 +24,8 @@ def render(name: str, context: dict) -> str:
     environment = jinja2.Environment(loader=loader)
     template = environment.get_template(name)
 
-    rendered_template = template.render(context)
+    complete_context = settings.TEMPLATES_DEFAULT_CONTEXT
+    complete_context.update(context)
+
+    rendered_template = template.render(complete_context)
     return rendered_template

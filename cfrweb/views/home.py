@@ -6,11 +6,12 @@ class HomeView(TemplateView):
 
     template_name = 'templates/index.html'
 
-    def context(self):
-        """Gets the context for the template."""
+    def context(self) -> dict:
+        """Gets the context to render the
+        template with.
 
-        return {
-            'meta': {
-                'description': 'Real-time updates on trains in Romania.'
-            }
-        }
+        Returns:
+            The context to pass to the template.
+        """
+
+        return dict()

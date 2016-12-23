@@ -25,13 +25,23 @@ class TrainView(TemplateView):
         return await super(TrainView, self).get()
 
     def context(self) -> dict:
-        """Gets the context for the template."""
+        """Gets the context to render the
+        template with.
+
+        Returns:
+            The context to pass to the template.
+        """
 
         try:
             context = cfr.train.find(self.train_number)
+
+            meta_description = ('Real-time updates for {rank}'
+                                '{number}, on the route \'{route}\'.'
+                                ).format(**context)
+
             context.update({
                 'meta': {
-                    'description': 'Real-time updates on {rank}{number}, on route \'{route}\'.'.format(**context)
+                    'description': meta_description
                 }
             })
 

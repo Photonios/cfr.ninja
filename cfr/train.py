@@ -136,6 +136,9 @@ def find(number: str) -> dict:
         train if it does.
     """
 
+    if not number:
+        raise TrainNotFound()
+
     state = ViewState('http://appiris.infofer.ro/MytrainRO.aspx')
 
     state.request('GET')

@@ -11,3 +11,10 @@ CACHE_TIMEOUT = collections.OrderedDict([
     ('text/*', 300),
     ('*', 300)
 ])
+
+TEMPLATES_DEFAULT_CONTEXT = {
+    'meta': {
+        'description': 'Real-time updates on trains in Romania.',
+        'keywords': 'CFR Romania real-time updates train'
+    }
+}
