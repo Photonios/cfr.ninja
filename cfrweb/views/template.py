@@ -1,7 +1,8 @@
-from aiohttp import web
-import jinja2
+from typing import Tuple
 
-from cfrweb.config import settings
+from aiohttp import web
+
+from .. import template
 
 
 class TemplateView(web.View):
@@ -13,14 +14,10 @@ class TemplateView(web.View):
             'template_name'
         )
 
-        loader = loader = jinja2.FileSystemLoader(
-            settings.PROJECT_DIR
+        rendered_template = template.render(
+            template_name,
+            self._get_context()
         )
-
-        environment = jinja2.Environment(loader=loader)
-        template = environment.get_template(template_name)
-
-        rendered_template = template.render(self._get_context())
 
         return web.Response(
             content_type='text/html',

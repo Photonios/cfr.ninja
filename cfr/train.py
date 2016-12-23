@@ -6,6 +6,11 @@ from .iter import pairwise
 from .viewstate import ViewState
 
 
+class TrainNotFound(Exception):
+    """Raises when the user entered the
+    number of a train there's no information of."""
+
+
 def _text_and_strip(value: str) -> str:
     """Strips the specified text and returns
     None if it's empty.
@@ -135,10 +140,13 @@ def find(number: str) -> dict:
 
     state.request('GET')
 
-    state.request('POST', data={
+    response = state.request('POST', data={
         'TextTrnNo': number,
         'Button1': 'Informatii tren'
     })
+
+    if 'Lipsa informatii.' in response.text:
+        raise TrainNotFound()
 
     state.request('POST', data={
         'TextTrnNo': number,

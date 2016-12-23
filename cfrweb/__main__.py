@@ -26,7 +26,8 @@ def main():
     app = aiohttp.web.Application(
         middlewares=[
             middleware.security,
-            middleware.browser_cache
+            middleware.browser_cache,
+            middleware.exception
         ]
     )
 

@@ -1,7 +1,9 @@
+from typing import Tuple
+
 from aiohttp import web
+import cfr
 
 from .template import TemplateView
-import cfr
 
 
 class TrainView(TemplateView):
@@ -21,17 +23,12 @@ class TrainView(TemplateView):
             )
 
         self.train_number = self.request.match_info.get('train')
-
-        # TODO: display a nice error message
-        if not self.train_number:
-            return web.Response(
-                status=404,
-                text='404 Not Found'
-            )
-
         return await super(TrainView, self).get()
 
-    def context(self):
+    def context(self) -> dict:
         """Gets the context for the template."""
 
-        return cfr.train.find(self.train_number)
+        try:
+            return cfr.train.find(self.train_number)
+        except cfr.train.TrainNotFound:
+            raise web.HTTPNotFound(reason='We couldn\'t find that train.')
