@@ -14,7 +14,7 @@ class TemplateView(web.View):
         )
 
         loader = loader = jinja2.FileSystemLoader(
-            settings.TEMPLATES_DIR
+            settings.PROJECT_DIR
         )
 
         environment = jinja2.Environment(loader=loader)

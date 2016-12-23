@@ -7,7 +7,7 @@ import cfr
 class TrainView(TemplateView):
     """Page that displays details about a specific train."""
 
-    template_name = 'train.html'
+    template_name = 'templates/train.html'
 
     async def get(self):
         """Reply to HTTP GET request."""
