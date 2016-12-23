@@ -16,6 +16,11 @@ class AboutView(TemplateView):
 
         return {
             'meta': {
-                'page': 'About'
+                'page': 'About',
+                'description': ('CFR Ninja (cfr.ninja) is a website '
+                                'that aims to provide an improved '
+                                'interface when it comes to accessing '
+                                'train schedules and delays in Romania.')
+
             }
         }
