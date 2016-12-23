@@ -1,4 +1,4 @@
 from .common import *
 
 
-DEBUG = True 
+DEBUG = True

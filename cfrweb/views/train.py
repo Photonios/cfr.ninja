@@ -1,4 +1,3 @@
-from typing import Tuple
 
 from aiohttp import web
 import cfr
@@ -29,6 +28,13 @@ class TrainView(TemplateView):
         """Gets the context for the template."""
 
         try:
-            return cfr.train.find(self.train_number)
+            context = cfr.train.find(self.train_number)
+            context.update({
+                'meta': {
+                    'description': 'Real-time updates on {rank}{number}, on route \'{route}\'.'.format(**context)
+                }
+            })
+
+            return context
         except cfr.train.TrainNotFound:
             raise web.HTTPNotFound(reason='We couldn\'t find that train.')

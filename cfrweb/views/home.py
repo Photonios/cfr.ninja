@@ -10,5 +10,7 @@ class HomeView(TemplateView):
         """Gets the context for the template."""
 
         return {
-            'title': 'yellow'
+            'meta': {
+                'description': 'Real-time updates on trains in Romania.'
+            }
         }
