@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table id="train-details">
+        <tr>
+            <th>Route</th>
+            <td>{{ route }}</td>
+        </tr>
+        <tr>
+            <th>Operator</th>
+            <td>{{ operator }}</td>
+        </tr>
+        <tr>
+            <th>Rank</th>
+            <td>{{ rank }}
+        </tr>
+        <tr>
+            <th>Number</th>
+            <td>{{ number }}</td>
+        </tr>
+        <tr>
+            <th>Distance</th>
+            <td>{{ distance }}</td>
+        </tr>
+        <tr>
+            <th>Duration</th>
+            <td>{{ duration }}</td>
+        </tr>
+        <tr>
+            <th>Arrival at</th>
+            <td>{{ arrival_at }}</td>
+        </tr>
+        <tr>
+            <th>Delay</th>
+            <td>{{ delay }} minutes</td>
+        </tr>
+        <tr>
+            <th>Next stop</th>
+            <td>{{ next_stop }}</td>
+        </tr>
+        <tr>
+            <th>Last info</th>
+            <td>{{ last_info }}</td>
+        </tr>
+    </table>
+    <table id="train-schedule">
+        <tr>
+            <th>Distance</th>
+            <th>Station</th>
+            <th>Arrives at</th>
+            <th>Leaves at</th>
+            <th>Staying for</th>
+            <th>Delay</th>
+        </tr>
+        {% for item in schedule %}
+            <tr>
+                <td>{{ item.km }} km</td>
+                <td>{{ item.station }}</td>
+                <td>{{ item.arriving_at }}</td>
+                <td>{{ item.leaving_at }}</td>
+                <td>{{ item.staying_for }} minutes</td>
+                <td>{{ item.delay }} minutes</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

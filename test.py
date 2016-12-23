@@ -1,3 +1,5 @@
 import cfr
 
-cfr.train.find('1653')
+train = cfr.train.find('1653')
+import json
+print(json.dumps(train))
