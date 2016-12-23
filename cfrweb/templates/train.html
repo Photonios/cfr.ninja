@@ -47,9 +47,9 @@
         <tr>
             <th>Distance</th>
             <th>Station</th>
-            <th>Arrives at</th>
-            <th>Leaves at</th>
-            <th>Staying for</th>
+            <th>Arrives</th>
+            <th>Leaves</th>
+            <th>Staying</th>
             <th>Delay</th>
         </tr>
         {% for item in schedule %}
@@ -58,8 +58,8 @@
                 <td>{{ item.station }}</td>
                 <td>{{ item.arriving_at }}</td>
                 <td>{{ item.leaving_at }}</td>
-                <td>{{ item.staying_for }} minutes</td>
-                <td>{{ item.delay }} minutes</td>
+                <td>{{ item.staying_for }}m</td>
+                <td>{{ item.delay }}m</td>
             </tr>
         {% endfor %}
     </table>
