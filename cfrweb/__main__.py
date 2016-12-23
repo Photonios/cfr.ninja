@@ -24,7 +24,10 @@ def main():
     logging.basicConfig(level=logging.DEBUG)
 
     app = aiohttp.web.Application(
-        middlewares=[middleware.browser_cache]
+        middlewares=[
+            middleware.security,
+            middleware.browser_cache
+        ]
     )
 
     arguments = _parse_arguments()

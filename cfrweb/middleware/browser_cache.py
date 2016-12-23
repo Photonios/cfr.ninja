@@ -5,6 +5,11 @@ async def browser_cache(_, handler):
     which adds the 'Cache-control' headers
     to each response.
 
+    When the application is in debug
+    mode, then 'no-cache' is used, while
+    if in production, then the value
+    of the CACHE_TIMEOUT setting is used.
+
     Arguments:
         _:
             Unused argument.
