@@ -41,6 +41,7 @@ class TrainView(TemplateView):
 
             context.update({
                 'meta': {
+                    'page': '%s%s' % (context['rank'], context['number']),
                     'description': meta_description
                 }
             })

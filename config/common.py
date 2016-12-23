@@ -12,9 +12,13 @@ CACHE_TIMEOUT = collections.OrderedDict([
     ('*', 300)
 ])
 
+SITE_NAME = 'CFR Ninja'
+
 TEMPLATES_DIR = os.path.join(ROOT_DIR, 'cfrweb/templates')
 TEMPLATES_DEFAULT_CONTEXT = {
     'meta': {
+        'title': SITE_NAME,
+        'page': None,
         'description': 'Real-time updates on trains in Romania.',
         'keywords': 'CFR Romania real-time updates train'
     }

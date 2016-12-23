@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>CFR Ninja</title>
+        {% if not meta.page %}
+            <title>{{ meta.title }}</title>
+        {% else %}
+            <title>{{ meta.title }} - {{ meta.page }}</title>
+        {% endif %}
 
         <meta charset="UTF-8">
         <meta name="description" content="{{ meta.description }}">
