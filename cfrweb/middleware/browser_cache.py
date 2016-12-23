@@ -1,3 +1,5 @@
+import fnmatch
+
 from ..config import settings
 
 async def browser_cache(_, handler):
@@ -21,13 +23,36 @@ async def browser_cache(_, handler):
         The middleware handler.
     """
 
+    def _get_timeout(content_type: str):
+        """Gets the cache timeout in
+        seconds for a resource of the
+        specified content type.
+
+        Arguments:
+            content_type:
+                The content type
+                to get the cache
+                timeout for.
+
+        Returns:
+            The cache timeout for
+            a resource of the specified
+            content type.
+        """
+
+        for pattern, timeout in settings.CACHE_TIMEOUT.items():
+            if fnmatch.fnmatch(content_type, pattern):
+                return timeout
+
+        return settings.CACHE_TIMEOUT['*']
+
     async def middleware_handler(request):
         response = await handler(request)
 
         if settings.DEBUG:
             value = 'no-cache'
         else:
-            value = 'max-age=%d' % settings.CACHE_TIMEOUT
+            value = 'max-age=%d' % _get_timeout(response.content_type)
 
         response.headers['Cache-Control'] = value
 
