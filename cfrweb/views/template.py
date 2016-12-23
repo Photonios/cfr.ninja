@@ -1,7 +1,6 @@
 from aiohttp import web
 
 from .. import template
-from ..config import settings
 
 
 class TemplateView(web.View):
@@ -17,7 +16,7 @@ class TemplateView(web.View):
 
         rendered_template = template.render(
             template_name,
-            self._get_context()
+            self.context()
         )
 
         return web.Response(
@@ -33,14 +32,4 @@ class TemplateView(web.View):
             The context to pass to the template.
         """
 
-    def _get_context(self):
-        """Gets the context to pass to the
-        Jinja2 template from the super class."""
-
-        context = getattr(
-            self,
-            'context',
-            lambda: settings.TEMPLATES_DEFAULT_CONTEXT
-        )
-
-        return context()
+        return dict()

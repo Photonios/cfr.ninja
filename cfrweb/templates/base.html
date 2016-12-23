@@ -17,16 +17,22 @@
                 margin-bottom: 1em;
             }
 
-            content {
-                text-align: center;
+            #content {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 60%;
             }
 
-            content p {
+            #content p {
                 margin-left: auto;
                 margin-right: auto;
             }
 
-            content input {
+            #content input {
+                text-align: center;
+            }
+
+            #search {
                 text-align: center;
             }
 
@@ -44,11 +50,11 @@
     </head>
     <body>
         <header>
-                <img src="/logo200x127.jpg">
+            <a href="/"><img src="/logo200x127.jpg"></a>
         </header>
-        <content>
+        <div id="content">
             {% block content %}
             {% endblock %}
-        </content>
+        </div>
     </body>
 </html>

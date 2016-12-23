@@ -1,4 +1,4 @@
-from .views import HomeView, StaticFileView, TrainView
+from .views import AboutView, HomeView, StaticFileView, TrainView
 
 
 def get():
@@ -7,6 +7,7 @@ def get():
 
     return [
         (['GET'], '/', HomeView),
+        (['GET'], '/about', AboutView),
         (['GET'], '/train/{train}', TrainView),
         (['GET'], '/train/', TrainView),
         (['GET'], '/{filename:.*}', StaticFileView)
