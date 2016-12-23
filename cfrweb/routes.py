@@ -7,6 +7,7 @@ def get():
 
     return [
         (['GET'], '/', HomeView),
+        (['GET'], '/train/{train}', TrainView),
         (['GET'], '/train/', TrainView),
         (['GET'], '/{filename:.*}', StaticFileView)
     ]

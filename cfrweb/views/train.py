@@ -12,7 +12,17 @@ class TrainView(TemplateView):
     async def get(self):
         """Reply to HTTP GET request."""
 
+        # if the train number is specified through
+        # a GET parameter, redirect to the perma link
         self.train_number = self.request.GET.get('train', None)
+        if self.train_number:
+            return web.HTTPMovedPermanently(
+                '/train/%s' % self.train_number
+            )
+
+        self.train_number = self.request.match_info.get('train')
+
+        # TODO: display a nice error message
         if not self.train_number:
             return web.Response(
                 status=404,
