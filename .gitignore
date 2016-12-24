@@ -4,3 +4,6 @@ env/
 # Ignore python byte code
 __pycache__
 *.pyc
+
+# Ignore Mac OS X .DS_Store
+.DS_Store
