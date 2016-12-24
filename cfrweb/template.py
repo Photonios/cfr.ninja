@@ -1,14 +1,7 @@
 import jinja2
 
+from .util import merge_dict_r
 from .config import settings
-
-
-def merge_dict_r(dict_a: dict, dict_b: dict):
-    for key, value in dict_b.items():
-        if isinstance(dict_a.get(key), dict):
-            merge_dict_r(dict_a[key], value)
-        else:
-            dict_a[key] = value
 
 
 def render(name: str, context: dict, locale=None) -> str:
@@ -42,8 +35,10 @@ def render(name: str, context: dict, locale=None) -> str:
 
     template = environment.get_template(name)
 
-    complete_context = settings.TEMPLATES_DEFAULT_CONTEXT.copy()
-    merge_dict_r(complete_context, context)
+    complete_context = merge_dict_r(
+        settings.TEMPLATES_DEFAULT_CONTEXT,
+        context
+    )
 
     rendered_template = template.render(complete_context)
     return rendered_template
