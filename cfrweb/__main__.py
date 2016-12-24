@@ -31,16 +31,15 @@ def _enable_caching(app: aiohttp.web.Application):
             The application to cache for.
     """
 
-    aiohttp_cache.RedisConfig(
-        host=settings.REDIS_URL.hostname,
-        port=settings.REDIS_URL.port,
-        password=settings.REDIS_URL.password,
-        key_prefix='cfrninja'
-    )
-
     aiohttp_cache.setup_cache(
         app,
-        cache_type='redis'
+        cache_type='redis',
+        backend_config=aiohttp_cache.RedisConfig(
+            host=settings.REDIS_URL.hostname,
+            port=settings.REDIS_URL.port,
+            password=settings.REDIS_URL.password,
+            key_prefix='cfrninja'
+        )
     )
 
 

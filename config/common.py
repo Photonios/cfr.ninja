@@ -1,6 +1,6 @@
-import collections
-import os
 from urllib.parse import urlparse
+import os
+import collections
 
 # Enable/disable debug mode
 DEBUG = False
