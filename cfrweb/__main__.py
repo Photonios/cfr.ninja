@@ -22,18 +22,14 @@ def _parse_arguments() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def main():
-    """Entry point for this application."""
+def _enable_caching(app: aiohttp.web.Application):
+    """Enables Redis-based caching for the
+    specified aiohttp application.
 
-    logging.basicConfig(level=logging.DEBUG)
-
-    app = aiohttp.web.Application(
-        middlewares=[
-            middleware.security,
-            middleware.browser_cache,
-            middleware.exception
-        ]
-    )
+    Arguments:
+        app:
+            The application to cache for.
+    """
 
     aiohttp_cache.RedisConfig(
         host=settings.REDIS_URL.hostname,
@@ -47,7 +43,24 @@ def main():
         cache_type='redis'
     )
 
+
+def main():
+    """Entry point for this application."""
+
+    logging.basicConfig(level=logging.DEBUG)
+
+    app = aiohttp.web.Application(
+        middlewares=[
+            middleware.security,
+            middleware.browser_cache,
+            middleware.exception
+        ]
+    )
+
     arguments = _parse_arguments()
+
+    if not settings.DEBUG:
+        _enable_caching(app)
 
     for methods, route, handler in routes.get():
         resource = app.router.add_resource(route)
