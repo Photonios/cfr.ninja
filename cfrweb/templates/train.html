@@ -3,54 +3,54 @@
 {% block content %}
     <table id="train-details">
         <tr>
-            <th>Route</th>
+            <th>{{ _('Route') }}</th>
             <td>{{ route }}</td>
         </tr>
         <tr>
-            <th>Operator</th>
+            <th>{{ _('Operator') }}</th>
             <td>{{ operator }}</td>
         </tr>
         <tr>
-            <th>Rank</th>
+            <th>{{ _('Rank') }}</th>
             <td>{{ rank }}
         </tr>
         <tr>
-            <th>Number</th>
+            <th>{{ _('Number') }}</th>
             <td>{{ number }}</td>
         </tr>
         <tr>
-            <th>Distance</th>
+            <th>{{ _('Distance') }}</th>
             <td>{{ distance }}</td>
         </tr>
         <tr>
-            <th>Duration</th>
+            <th>{{ _('Duration') }}</th>
             <td>{{ duration }}</td>
         </tr>
         <tr>
-            <th>Arrival at</th>
+            <th>{{ _('Arrives at') }}</th>
             <td>{{ arrival_at }}</td>
         </tr>
         <tr>
-            <th>Delay</th>
+            <th>{{ _('Delay') }}</th>
             <td>{{ delay }} minutes</td>
         </tr>
         <tr>
-            <th>Next stop</th>
+            <th>{{ _('Next stop') }}</th>
             <td>{{ next_stop }}</td>
         </tr>
         <tr>
-            <th>Last info</th>
+            <th>{{ _('Last info') }}</th>
             <td>{{ last_info }}</td>
         </tr>
     </table>
     <table id="train-schedule">
         <tr>
-            <th>Distance</th>
-            <th>Station</th>
-            <th>Arrives</th>
-            <th>Leaves</th>
-            <th>Staying</th>
-            <th>Delay</th>
+            <th>{{ _('Distance') }}</th>
+            <th>{{ _('Station') }}</th>
+            <th>{{ _('Arrives') }}</th>
+            <th>{{ _('Leaves') }}</th>
+            <th>{{ _('Staying') }}</th>
+            <th>{{ _('Delay') }}</th>
         </tr>
         {% for item in schedule %}
             <tr>

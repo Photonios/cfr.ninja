@@ -43,6 +43,9 @@ msgstr "Întârziere"
 msgid "Next stop"
 msgstr "Următoarea oprire"
 
+msgid "Last info"
+msgstr "Ultima actualizare"
+
 msgid "Station"
 msgstr "Statie"
 
@@ -54,3 +57,6 @@ msgstr "Pleacă"
 
 msgid "Staying"
 msgstr "Staționare"
+
+msgid "We couldn't find that train"
+msgstr "Nu a fost găsit nici un tren"

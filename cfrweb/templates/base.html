@@ -4,7 +4,7 @@
         {% if not meta.page %}
             <title>{{ meta.title }}</title>
         {% else %}
-            <title>{{ meta.title }} - {{ meta.page }}</title>
+        <title>{{ meta.title }} - {{ _(meta.page) }}</title>
         {% endif %}
 
         <meta charset="UTF-8">
@@ -93,8 +93,8 @@
         </header>
         <ul id="menu">
             <div id="menu-items" class="centered">
-                <li><a href="/">Find train</a></li>
-                <li><a href="/about">About</a></li>
+                <li><a href="/">{{ _('Find train') }}</a></li>
+                <li><a href="/about">{{ _('About') }}</a></li>
             </div>
         </ul>
         <div id="content" class="centered">

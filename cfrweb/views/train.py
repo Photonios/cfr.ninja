@@ -49,4 +49,4 @@ class TrainView(TemplateView):
 
             return context
         except cfr.train.TrainNotFound:
-            raise web.HTTPNotFound(reason='We couldn\'t find that train.')
+            raise web.HTTPNotFound(reason='We couldn\'t find that train')

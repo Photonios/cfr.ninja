@@ -27,7 +27,8 @@ async def exception(_, handler):
                 'templates/error.html',
                 {
                     'message': error.reason
-                }
+                },
+                request.locale
             )
 
             return error

@@ -43,6 +43,9 @@ msgstr "Delay"
 msgid "Next stop"
 msgstr "Next stop"
 
+msgid "Last info"
+msgstr "Last info"
+
 msgid "Station"
 msgstr "Statia"
 
@@ -54,3 +57,6 @@ msgstr "Leaves"
 
 msgid "Staying"
 msgstr "Staying"
+
+msgid "We couldn't find that train"
+msgstr "We couldn't find that train"

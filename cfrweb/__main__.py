@@ -50,6 +50,7 @@ def main():
 
     app = aiohttp.web.Application(
         middlewares=[
+            middleware.locale,
             middleware.security,
             middleware.browser_cache,
             middleware.exception

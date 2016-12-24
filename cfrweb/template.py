@@ -1,6 +1,6 @@
 import jinja2
 
-from cfrweb.config import settings
+from .config import settings
 
 
 def merge_dict_r(dict_a: dict, dict_b: dict):
@@ -11,7 +11,7 @@ def merge_dict_r(dict_a: dict, dict_b: dict):
             dict_a[key] = value
 
 
-def render(name: str, context: dict) -> str:
+def render(name: str, context: dict, locale=None) -> str:
     """Renders the template at the specified path
     with the specified context.
 
@@ -22,6 +22,9 @@ def render(name: str, context: dict) -> str:
         context:
             The context to provide to the template.
 
+        locale:
+            Optionally, the locale to render with.
+
     Returns:
         The rendered template.
     """
@@ -30,7 +33,13 @@ def render(name: str, context: dict) -> str:
         settings.PROJECT_DIR
     )
 
-    environment = jinja2.Environment(loader=loader)
+    environment = jinja2.Environment(
+        loader=loader,
+        extensions=['jinja2.ext.i18n']
+    )
+
+    environment.install_gettext_translations(locale)
+
     template = environment.get_template(name)
 
     complete_context = settings.TEMPLATES_DEFAULT_CONTEXT.copy()

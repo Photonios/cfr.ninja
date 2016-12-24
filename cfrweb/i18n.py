@@ -1,17 +1,17 @@
 import gettext
 
-from ..config import settings
+from .config import settings
 
 
-def activate(language: str=None):
-    """Actives the specified language as
-    the currently active one.
+def get(language: str=None):
+    """Gets the translation object
+    for the specified language.
 
     Arguments:
         language:
-            The two-digit code
-            of the language to
-            switch to.
+            The two-digit code of
+            the language to get
+            the translations of.
     """
 
     language = language or settings.I18N_PRIMARY_LANGUAGE
@@ -22,4 +22,4 @@ def activate(language: str=None):
         languages=[language]
     )
 
-    translation.install()
+    return translation

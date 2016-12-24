@@ -16,7 +16,8 @@ class TemplateView(web.View):
 
         rendered_template = template.render(
             template_name,
-            self.context()
+            self.context(),
+            self.request.locale
         )
 
         return web.Response(
