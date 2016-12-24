@@ -1,5 +1,5 @@
-import importlib
 import os
+import importlib
 
 settings_module = os.environ.get(
     'CFRWEB_SETTINGS_MODULE',

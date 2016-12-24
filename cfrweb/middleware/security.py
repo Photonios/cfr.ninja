@@ -1,4 +1,3 @@
-
 async def security(_, handler):
     """Middleware that hides potentially
     interesting information from our

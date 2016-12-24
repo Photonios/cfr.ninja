@@ -1,4 +1,4 @@
-from .views import AboutView, SearchView, StaticFileView, TrainView
+from .views import AboutView, TrainView, SearchView, StaticFileView
 
 
 def get():

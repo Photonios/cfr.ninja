@@ -1,11 +1,11 @@
-import argparse
 import logging
+import argparse
 
 import aiohttp
 import aiohttp.web
 import aiohttp_cache
 
-from . import middleware, routes
+from . import routes, middleware
 from .config import settings
 
 

@@ -1,6 +1,6 @@
-from bs4 import BeautifulSoup
-
 from typing import List
+
+from bs4 import BeautifulSoup
 
 from .iter import pairwise
 from .viewstate import ViewState

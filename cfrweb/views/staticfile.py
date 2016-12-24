@@ -1,8 +1,7 @@
-import mimetypes
 import os
+import mimetypes
 
 from aiohttp import web
-from aiohttp_cache import cache
 
 from ..config import settings
 
