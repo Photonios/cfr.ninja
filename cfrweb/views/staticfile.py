@@ -2,6 +2,7 @@ import mimetypes
 import os
 
 from aiohttp import web
+from aiohttp_cache import cache
 
 from ..config import settings
 

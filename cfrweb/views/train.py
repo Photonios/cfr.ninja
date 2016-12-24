@@ -1,11 +1,11 @@
-
 from aiohttp import web
-
+from aiohttp_cache import cache
 import cfr
 
 from .template import TemplateView
 
 
+@cache(expires=60)
 class TrainView(TemplateView):
     """Page that displays details about a specific train."""
 
