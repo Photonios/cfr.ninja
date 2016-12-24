@@ -1,4 +1,4 @@
-from .views import AboutView, HomeView, StaticFileView, TrainView
+from .views import AboutView, SearchView, StaticFileView, TrainView
 
 
 def get():
@@ -6,7 +6,7 @@ def get():
     this webserver."""
 
     return [
-        (['GET'], '/', HomeView),
+        (['GET'], '/', SearchView),
         (['GET'], '/about', AboutView),
         (['GET'], '/train/{train}', TrainView),
         (['GET'], '/train/', TrainView),
