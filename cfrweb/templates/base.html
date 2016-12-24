@@ -10,7 +10,7 @@
         <meta charset="UTF-8">
         <meta name="description" content="{{ meta.description }}">
         <meta name="keywords" content="{{ meta.keywords }}">
-        <meta name="viewport" content="width=device-width, initial-scale=0.7">
+        <meta name="viewport" content="width=device-width, initial-scale=0.7,user-scalable=0">
 
         <link rel="icon" href="/favicon.ico" sizes="256x256">
         <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml">
@@ -22,12 +22,20 @@
 
             header {
                 text-align: center;
-                margin-bottom: 1em;
+                margin: 2rem;
             }
 
             #logo {
                 width: 200px;
                 height: 127px;
+            }
+
+            #menu {
+                list-style: none;
+            }
+
+            #menu li {
+                display: inline;
             }
 
             #content {
@@ -41,16 +49,8 @@
                 margin-right: auto;
             }
 
-            #content input {
-                text-align: center;
-            }
-
             #wrapper {
                 margin: 2rem;
-            }
-
-            #search {
-                text-align: center;
             }
 
             #train-details {
@@ -70,6 +70,10 @@
     <body>
         <header>
             <a href="/"><img id="logo" src="/logo.svg"></a>
+            <ul id="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+            </ul>
         </header>
         <div id="content">
             <div id="wrapper">
