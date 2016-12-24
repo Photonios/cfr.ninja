@@ -1,4 +1,3 @@
-from ..config import settings
 
 async def security(_, handler):
     """Middleware that hides potentially

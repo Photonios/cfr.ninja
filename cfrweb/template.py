@@ -1,5 +1,6 @@
-from cfrweb.config import settings
 import jinja2
+
+from cfrweb.config import settings
 
 
 def merge_dict_r(dict_a: dict, dict_b: dict):

@@ -1,6 +1,6 @@
-from typing import List
-
 from bs4 import BeautifulSoup
+
+from typing import List
 
 from .iter import pairwise
 from .viewstate import ViewState
@@ -168,5 +168,5 @@ def find(number: str) -> dict:
     return details
 
 __all__ = [
-    'train'
+    'find'
 ]

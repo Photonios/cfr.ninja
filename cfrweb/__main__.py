@@ -1,8 +1,11 @@
 import argparse
 import logging
 
-from cfrweb import middleware, routes
 import aiohttp
+import aiohttp.web
+
+from . import middleware
+from . import routes
 
 
 def _parse_arguments() -> argparse.Namespace:

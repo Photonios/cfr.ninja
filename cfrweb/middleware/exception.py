@@ -1,4 +1,5 @@
 from aiohttp import web
+
 from .. import template
 
 async def exception(_, handler):
