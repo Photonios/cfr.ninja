@@ -3,9 +3,10 @@ import logging
 
 import aiohttp
 import aiohttp.web
+import aiohttp_cache
 
-from . import middleware
-from . import routes
+from . import middleware, routes
+from .config import settings
 
 
 def _parse_arguments() -> argparse.Namespace:
@@ -32,6 +33,18 @@ def main():
             middleware.browser_cache,
             middleware.exception
         ]
+    )
+
+    aiohttp_cache.RedisConfig(
+        host=settings.REDIS_URL.hostname,
+        port=settings.REDIS_URL.port,
+        password=settings.REDIS_URL.password,
+        key_prefix='cfrninja'
+    )
+
+    aiohttp_cache.setup_cache(
+        app,
+        cache_type='redis'
     )
 
     arguments = _parse_arguments()
