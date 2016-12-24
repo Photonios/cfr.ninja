@@ -23,3 +23,5 @@ TEMPLATES_DEFAULT_CONTEXT = {
         'keywords': 'CFR Romania real-time updates train'
     }
 }
+
+REDIS_URL = os.environ.get('REDIS_URL', 'redis://')
