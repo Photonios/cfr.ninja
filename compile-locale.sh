@@ -1,8 +1,8 @@
 #!/bin/bash
 
-for po_file in *.po; do
+for po_file in locale/*.po; do
     language="${po_file%.*}"
-    dir="locale/$language/LC_MESSAGES"
+    dir="$language/LC_MESSAGES"
 
     mkdir -p "$dir"
     cp "$po_file" "$dir"

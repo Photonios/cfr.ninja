@@ -10,7 +10,7 @@ ROOT_DIR = os.path.join(os.path.dirname(__file__), '..')
 PROJECT_DIR = os.path.join(os.path.dirname(__file__), '../cfrweb')
 
 # Directory from which static files are served
-STATIC_FILES_DIR = os.path.join(PROJECT_DIR, 'assets')
+STATIC_FILES_DIR = os.path.join(ROOT_DIR, 'assets')
 
 # Amount of seconds to cache resources of
 # the specified mime types
@@ -44,7 +44,7 @@ REDIS_URL = urlparse(
 
 # i18n/multi-language configuration
 I18N_DOMAIN = 'cfrweb'
-I18N_LOCALE_DIR = os.path.join(PROJECT_DIR, 'i18n/locale')
+I18N_LOCALE_DIR = os.path.join(ROOT_DIR, 'locale')
 I18N_PRIMARY_LANGUAGE = 'en'
 I18N_LANGUAGES = {
     'en': 'English',
