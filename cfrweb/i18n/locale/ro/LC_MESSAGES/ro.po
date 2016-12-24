@@ -1,0 +1,56 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Train number"
+msgstr "Numărul trenului"
+
+msgid "About"
+msgstr "Despre"
+
+msgid "Find train"
+msgstr "Găsește tren"
+
+msgid "Find my train"
+msgstr "Găsește trenul meu"
+
+msgid "Route"
+msgstr "Traseu"
+
+msgid "Operator"
+msgstr "Operator"
+
+msgid "Rank"
+msgstr "Rang"
+
+msgid "Number"
+msgstr "Număr"
+
+msgid "Distance"
+msgstr "Distanţă"
+
+msgid "Duration"
+msgstr "Durată"
+
+msgid "Arrives at"
+msgstr "Soseşte la"
+
+msgid "Delay"
+msgstr "Întârziere"
+
+msgid "Next stop"
+msgstr "Următoarea oprire"
+
+msgid "Station"
+msgstr "Statie"
+
+msgid "Arrives"
+msgstr "Sosește"
+
+msgid "Leaves"
+msgstr "Pleacă"
+
+msgid "Staying"
+msgstr "Staționare"

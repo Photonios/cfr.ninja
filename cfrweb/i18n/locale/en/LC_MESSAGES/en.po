@@ -1,0 +1,56 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Train number"
+msgstr "Train number"
+
+msgid "About"
+msgstr "About"
+
+msgid "Find train"
+msgstr "Find train"
+
+msgid "Find my train"
+msgstr "Find my train"
+
+msgid "Route"
+msgstr "Route"
+
+msgid "Operator"
+msgstr "Operator"
+
+msgid "Rank"
+msgstr "Rank"
+
+msgid "Number"
+msgstr "Number"
+
+msgid "Distance"
+msgstr "Distance"
+
+msgid "Duration"
+msgstr "Duration"
+
+msgid "Arrives at"
+msgstr "Arrives at"
+
+msgid "Delay"
+msgstr "Delay"
+
+msgid "Next stop"
+msgstr "Next stop"
+
+msgid "Station"
+msgstr "Statia"
+
+msgid "Arrives"
+msgstr "Arrives"
+
+msgid "Leaves"
+msgstr "Leaves"
+
+msgid "Staying"
+msgstr "Staying"

@@ -41,3 +41,12 @@ REDIS_URL = urlparse(
         'redis://localhost:6379'
     )
 )
+
+# i18n/multi-language configuration
+I18N_DOMAIN = 'cfrweb'
+I18N_LOCALE_DIR = os.path.join(PROJECT_DIR, 'i18n/locale')
+I18N_PRIMARY_LANGUAGE = 'en'
+I18N_LANGUAGES = {
+    'en': 'English',
+    'ro': 'Română'
+}
