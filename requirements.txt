@@ -2,5 +2,3 @@ beautifulsoup4==4.5.1
 requests==2.12.4
 aiohttp==1.2.0
 Jinja2==2.8
-aiohttp-wsgi==0.6.3
-aiohttp-cache==1.0.2

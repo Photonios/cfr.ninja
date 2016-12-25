@@ -3,11 +3,9 @@ import argparse
 
 import aiohttp
 import aiohttp.web
-import aiohttp_cache
 
 from . import middleware
 from .urls import urlconfig
-from .config import settings
 from .routing import LocalizedApplication
 
 
@@ -22,27 +20,6 @@ def _parse_arguments() -> argparse.Namespace:
                         help='Port to listen on.')
 
     return parser.parse_args()
-
-
-def _enable_caching(app: aiohttp.web.Application):
-    """Enables Redis-based caching for the
-    specified aiohttp application.
-
-    Arguments:
-        app:
-            The application to cache for.
-    """
-
-    aiohttp_cache.setup_cache(
-        app,
-        cache_type='redis',
-        backend_config=aiohttp_cache.RedisConfig(
-            host=settings.REDIS_URL.hostname,
-            port=settings.REDIS_URL.port,
-            password=settings.REDIS_URL.password,
-            key_prefix='cfrninja'
-        )
-    )
 
 
 def main():
@@ -60,9 +37,6 @@ def main():
     )
 
     arguments = _parse_arguments()
-
-    if not settings.DEBUG:
-        _enable_caching(app)
 
     aiohttp.web.run_app(app, port=arguments.port)
 
