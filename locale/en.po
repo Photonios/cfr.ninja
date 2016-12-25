@@ -47,7 +47,7 @@ msgid "Last info"
 msgstr "Last info"
 
 msgid "Station"
-msgstr "Statia"
+msgstr "Station"
 
 msgid "Arrives"
 msgstr "Arrives"

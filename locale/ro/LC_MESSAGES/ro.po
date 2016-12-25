@@ -60,3 +60,9 @@ msgstr "Staționare"
 
 msgid "We couldn't find that train"
 msgstr "Nu a fost găsit nici un tren"
+
+msgid "Real-time updates for {rank} {number}, on the route '{route}'."
+msgstr "Actualizări în timp real pentru {rank} {number}, pe ruta '{route}'."
+
+msgid "Real-time updates on trains in Romania."
+msgstr "Actualizări în timp real pentru trenurile din România."
