@@ -15,4 +15,4 @@ def change_language_url(context, language: str):
         page in the specified language.
     """
 
-    return '/%s/' % language
+    return '/%s%s' % (language, context['meta']['path'])

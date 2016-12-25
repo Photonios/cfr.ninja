@@ -1,7 +1,5 @@
 import jinja2
 
-from ..urls import urlconfig
-
 
 @jinja2.contextfunction
 def url(context, name: str, language: str=None, **kwargs) -> str:
@@ -26,6 +24,8 @@ def url(context, name: str, language: str=None, **kwargs) -> str:
         A URL leading to the configured URL
         with the speicfied name.
     """
+
+    from ..urls import urlconfig
 
     language = language or context['meta']['language']
     return urlconfig.get_url(name, language, **kwargs)

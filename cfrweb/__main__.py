@@ -8,6 +8,7 @@ import aiohttp_cache
 from . import middleware
 from .urls import urlconfig
 from .config import settings
+from .routing import LocalizedApplication
 
 
 def _parse_arguments() -> argparse.Namespace:
@@ -49,9 +50,8 @@ def main():
 
     logging.basicConfig(level=logging.DEBUG)
 
-    app = aiohttp.web.Application(
+    app = LocalizedApplication(
         middlewares=[
-            middleware.locale,
             middleware.security,
             middleware.browser_cache,
             middleware.exception

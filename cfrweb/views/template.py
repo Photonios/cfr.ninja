@@ -1,6 +1,9 @@
 from aiohttp import web
+import jinja2
 
-from .. import template
+from .. import i18n, filters
+from ..util import merge_dict_r
+from ..config import settings
 
 
 class TemplateView(web.View):
@@ -14,11 +17,38 @@ class TemplateView(web.View):
             'template_name'
         )
 
-        rendered_template = template.render(
-            template_name,
-            self.context(),
-            self.request.language
+        environment = jinja2.Environment(
+            loader=jinja2.FileSystemLoader(
+                settings.PROJECT_DIR
+            ),
+            extensions=['jinja2.ext.i18n']
         )
+
+        # register all the filters and context functions we have
+        environment.globals['url'] = filters.url
+        environment.globals['change_language_url'] = filters.change_language_url
+
+        # install the current locale so that gettext
+        # works properly
+        locale = i18n.get(self.request.language)
+        environment.install_gettext_translations(locale)
+
+        # build the complete context by combining
+        # the defaults with the ones specified to us
+        complete_context = merge_dict_r(
+            settings.TEMPLATES_DEFAULT_CONTEXT,
+            merge_dict_r(
+                self.context(),
+                {'meta': {
+                    'language': self.request.language,
+                    'path': self.request.path
+                }}
+            )
+        )
+
+        # render the template
+        template = environment.get_template(template_name)
+        rendered_template = template.render(complete_context)
 
         return web.Response(
             content_type='text/html',

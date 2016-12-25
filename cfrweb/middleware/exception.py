@@ -1,6 +1,6 @@
 from aiohttp import web
 
-from .. import template
+from ..views import ErrorView
 
 async def exception(_, handler):
     """Catches exceptions and provides
@@ -20,19 +20,9 @@ async def exception(_, handler):
 
     async def middleware_handler(request):
         try:
-            response = await handler(request)
+            return await handler(request)
         except web.HTTPError as error:
-            error.content_type = 'text/html'
-            error.text = template.render(
-                'templates/error.html',
-                {
-                    'message': error.reason
-                },
-                request.language
-            )
-
-            return error
-
-        return response
+            request.match_info['message'] = error.reason
+            return await ErrorView(request).get()
 
     return middleware_handler
