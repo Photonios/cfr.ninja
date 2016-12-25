@@ -19,7 +19,7 @@ class TrainView(TemplateView):
         self.train_number = self.request.GET.get('train', None)
         if self.train_number:
             return web.HTTPMovedPermanently(
-                '/train/%s' % self.train_number
+                '/%s/train/%s' % (self.request.language, self.train_number)
             )
 
         self.train_number = self.request.match_info.get('train')

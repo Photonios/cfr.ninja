@@ -28,7 +28,7 @@ async def exception(_, handler):
                 {
                     'message': error.reason
                 },
-                request.locale
+                request.language
             )
 
             return error

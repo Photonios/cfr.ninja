@@ -33,6 +33,7 @@ async def locale(_, handler):
         # build a new request object with the new url
         new_request = request.clone(rel_url=url)
         new_request.locale = i18n.get(language)
+        new_request.language = language
         new_request._match_info = request._match_info
 
         # resolve the newly constructed url and update
@@ -41,7 +42,8 @@ async def locale(_, handler):
         new_request._match_info = await new_request.app.router.resolve(new_request)
 
         # invoke the next handler in the tree
-        response = await handler(new_request)
+        response = await new_request._match_info.handler(new_request)
+        # response = await handler(new_request)
         return response
 
     return middleware_handler

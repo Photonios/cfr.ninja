@@ -16,10 +16,20 @@
         <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml">
 
         <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
             .centered {
                 margin-left: auto;
                 margin-right: auto;
                 max-width: 50em;
+            }
+
+            .centered-inner {
+                margin-left: 2rem;
+                margin-right: 2rem;
             }
 
             body {
@@ -45,12 +55,11 @@
                 background: white;
                 border-bottom: 1px solid #ebebeb;
                 list-style: none;
-                padding-bottom: 0.8em;
+                height: 2.5em;
             }
 
             #menu li {
                 display: inline;
-                padding: 0.5em;
             }
 
             #menu a {
@@ -62,13 +71,38 @@
                 color: initial;
             }
 
+            .menu-items {
+                margin-top: 0.7em;
+            }
+
+            .menu-left {
+                float: left;
+            }
+
+            .menu-left li {
+                padding-right: 0.5em;
+            }
+
+            .menu-right {
+                float: right;
+            }
+
+            .menu-right li {
+                padding-left: 0.5em;
+            }
+
+            .flag {
+                width: 1.2em;
+                margin-top: 0.15em;
+            }
+
             #content p {
                 margin-left: auto;
                 margin-right: auto;
             }
 
-            #wrapper {
-                margin: 2rem;
+            .content-inner {
+                margin-top: 2rem;
             }
 
             #train-details {
@@ -88,17 +122,33 @@
     <body>
         <header>
             <div class="centered">
-                <a href="/"><img id="logo" src="/logo.svg"></a>
+                <a href="{{ '/' | local_url }}"><img id="logo" src="/logo.svg"></a>
             </div>
         </header>
         <ul id="menu">
-            <div id="menu-items" class="centered">
-                <li><a href="/">{{ _('Find train') }}</a></li>
-                <li><a href="/about">{{ _('About') }}</a></li>
+            <div class="centered">
+                <div class="centered-inner">
+                    <div class="menu-items menu-left">
+                        <li><a href="{{ '/' | local_url }}">{{ _('Find train') }}</a></li>
+                        <li><a href="{{ '/about' | local_url }}">{{ _('About') }}</a></li>
+                    </div>
+                    <div class="menu-items menu-right">
+                        <li>
+                            <a href="/en/">
+                                <img src="/flags/gb.svg" class="flag">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/ro/">
+                                <img src="/flags/ro.svg" class="flag">
+                            </a>
+                        </li>
+                    </div>
+                </div>
             </div>
         </ul>
         <div id="content" class="centered">
-            <div id="wrapper">
+            <div class="centered-inner content-inner">
                 {% block content %}
                 {% endblock %}
             </div>

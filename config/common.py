@@ -23,17 +23,6 @@ CACHE_TIMEOUT = collections.OrderedDict([
 # Name of the website
 SITE_NAME = 'CFR Ninja'
 
-# Jinja2 template configuration
-TEMPLATES_DIR = os.path.join(ROOT_DIR, 'cfrweb/templates')
-TEMPLATES_DEFAULT_CONTEXT = {
-    'meta': {
-        'title': SITE_NAME,
-        'page': None,
-        'description': 'Real-time updates on trains in Romania.',
-        'keywords': 'CFR Romania real-time updates train'
-    }
-}
-
 # Redis server to use for caching
 REDIS_URL = urlparse(
     os.environ.get(
@@ -49,4 +38,16 @@ I18N_PRIMARY_LANGUAGE = 'en'
 I18N_LANGUAGES = {
     'en': 'English',
     'ro': 'Română'
+}
+
+# Jinja2 template configuration
+TEMPLATES_DIR = os.path.join(ROOT_DIR, 'cfrweb/templates')
+TEMPLATES_DEFAULT_CONTEXT = {
+    'meta': {
+        'title': SITE_NAME,
+        'page': None,
+        'language': I18N_PRIMARY_LANGUAGE,
+        'description': 'Real-time updates on trains in Romania.',
+        'keywords': 'CFR Romania real-time updates train'
+    }
 }

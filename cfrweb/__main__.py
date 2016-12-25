@@ -62,8 +62,12 @@ def main():
     if not settings.DEBUG:
         _enable_caching(app)
 
-    for route, handler in routes.get().items():
-        resource = app.router.add_resource(route)
+    for route, name, handler in routes.get():
+        resource = app.router.add_resource(
+            route,
+            name=name
+        )
+
         resource.add_route('GET', handler)
 
     aiohttp.web.run_app(app, port=arguments.port)
