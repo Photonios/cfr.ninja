@@ -32,8 +32,9 @@ def render(name: str, context: dict, language: str=None) -> str:
         extensions=['jinja2.ext.i18n']
     )
 
-    # register all the filters we have
-    environment.filters['local_url'] = filters.local_url
+    # register all the filters and context functions we have
+    environment.globals['url'] = filters.url
+    environment.globals['change_language_url'] = filters.change_language_url
 
     # install the current locale so that gettext
     # works properly

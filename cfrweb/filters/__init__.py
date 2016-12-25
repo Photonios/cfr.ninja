@@ -1,5 +1,7 @@
-from .local_url import local_url
+from .url import url
+from .change_language_url import change_language_url
 
 __all__ = [
-    'local_url'
+    'url',
+    'change_language_url'
 ]

@@ -122,24 +122,24 @@
     <body>
         <header>
             <div class="centered">
-                <a href="{{ '/' | local_url }}"><img id="logo" src="/logo.svg"></a>
+                <a href="{{ url('home') }}"><img id="logo" src="/logo.svg"></a>
             </div>
         </header>
         <ul id="menu">
             <div class="centered">
                 <div class="centered-inner">
                     <div class="menu-items menu-left">
-                        <li><a href="{{ '/' | local_url }}">{{ _('Find train') }}</a></li>
-                        <li><a href="{{ '/about' | local_url }}">{{ _('About') }}</a></li>
+                        <li><a href="{{ url('train_search') }}">{{ _('Find train') }}</a></li>
+                        <li><a href="{{ url('about') }}">{{ _('About') }}</a></li>
                     </div>
                     <div class="menu-items menu-right">
                         <li>
-                            <a href="/en/">
+                            <a href="{{ change_language_url('en') }}">
                                 <img src="/flags/gb.svg" class="flag">
                             </a>
                         </li>
                         <li>
-                            <a href="/ro/">
+                            <a href="{{ change_language_url('ro') }}">
                                 <img src="/flags/ro.svg" class="flag">
                             </a>
                         </li>

@@ -5,7 +5,8 @@ import aiohttp
 import aiohttp.web
 import aiohttp_cache
 
-from . import routes, middleware
+from . import middleware
+from .urls import urlconfig
 from .config import settings
 
 
@@ -54,21 +55,14 @@ def main():
             middleware.security,
             middleware.browser_cache,
             middleware.exception
-        ]
+        ],
+        router=urlconfig.dispatcher
     )
 
     arguments = _parse_arguments()
 
     if not settings.DEBUG:
         _enable_caching(app)
-
-    for route, name, handler in routes.get():
-        resource = app.router.add_resource(
-            route,
-            name=name
-        )
-
-        resource.add_route('GET', handler)
 
     aiohttp.web.run_app(app, port=arguments.port)
 
