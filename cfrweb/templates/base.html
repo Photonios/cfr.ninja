@@ -4,16 +4,20 @@
         {% if not meta.page %}
             <title>{{ meta.title }}</title>
         {% else %}
-        <title>{{ meta.title }} - {{ _(meta.page) }}</title>
+            <title>{{ meta.title }} - {{ _(meta.page) }}</title>
         {% endif %}
 
         <meta charset="UTF-8">
-        <meta name="description" content="{{ meta.description }}">
+        <meta name="description" content="{{ _(meta.description) }}">
         <meta name="keywords" content="{{ meta.keywords }}">
         <meta name="viewport" content="width=device-width, initial-scale=0.7,user-scalable=0">
 
         <link rel=”alternate” hreflang=”en” href="/en">
         <link rel=”alternate” hreflang=”ro” href="/ro">
+
+        <meta property="og:image" content="/logo.svg" />
+        <meta property="og:description" content="{{ _(meta.description) }}" />
+        <meta property="og:title" content="{{ meta.title }}" />
 
         <link rel="icon" href="/favicon.ico" sizes="256x256">
         <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml">
