@@ -1,4 +1,17 @@
 {% extends 'templates/base.html' %}
 
 {% block content %}
+<div class="form">
+    <form action="{{ url('find_train_result_dynamic') }}"  method="get">
+        <div class="text-input first">
+            <input name="from" type="text" placeholder="{{ _('From') }}" autofocus/>
+        </div>
+        <div class="text-input last">
+            <input name="to" type="text" placeholder="{{ _('To') }}" autofocus/>
+        </div>
+        <div class="button">
+            <input type="submit" value="{{ _('Search') }}"/>
+        </div>
+    </form>
+</div>
 {% endblock %}

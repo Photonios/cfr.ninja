@@ -14,24 +14,24 @@ urlconfig = UrlCollection([
         view=SearchView
     ),
     Url(
-        url='/',
+        url='/find-train',
         name='find_train',
         view=FindTrainView
+    ),
+    Url(
+        url='/train/{train}',
+        name='find_train_result',
+        view=TrainView
+    ),
+    Url(
+        url='/train',
+        name='find_train_result_dynamic',
+        view=TrainView
     ),
     Url(
         url='/about',
         name='about',
         view=AboutView
-    ),
-    Url(
-        url='/train/{train}',
-        name='train_specific',
-        view=TrainView
-    ),
-    Url(
-        url='/train',
-        name='train_dynamic',
-        view=TrainView
     ),
     Url(
         url='/{filename:.*}',
