@@ -1,4 +1,5 @@
-from .views import AboutView, TrainView, FindTrainView, StaticFileView
+from .views import (AboutView, TrainView, SearchView, FindTrainView,
+                    StaticFileView)
 from .routing import Url, UrlCollection
 
 urlconfig = UrlCollection([
@@ -8,8 +9,13 @@ urlconfig = UrlCollection([
         view=FindTrainView
     ),
     Url(
+        url='/search',
+        name='search',
+        view=SearchView
+    ),
+    Url(
         url='/',
-        name='train_search',
+        name='find_train',
         view=FindTrainView
     ),
     Url(
