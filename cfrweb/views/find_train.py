@@ -1,7 +1,7 @@
 from .template import TemplateView
 
 
-class SearchView(TemplateView):
+class FindTrainView(TemplateView):
     """Page that allows searching trains by number."""
 
-    template_name = 'templates/search.html'
+    template_name = 'templates/find_train.html'
