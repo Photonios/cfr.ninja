@@ -117,12 +117,6 @@ def find(number: str) -> dict:
     if 'Lipsa informatii.' in response.text:
         raise TrainNotFound()
 
-    state.request('POST', data={
-        'TextTrnNo': number,
-        '__EVENTTARGET': 'DetailsView1',
-        '__EVENTARGUMENT': 'Page$2'
-    })
-
     document = state.request('POST', data={
         'TextTrnNo': number,
         'Button2': 'Arata detalii'
