@@ -13,8 +13,8 @@ msgstr "About"
 msgid "Find train"
 msgstr "Find train"
 
-msgid "Find my train"
-msgstr "Find my train"
+msgid "Find"
+msgstr "Find"
 
 msgid "Route"
 msgstr "Route"

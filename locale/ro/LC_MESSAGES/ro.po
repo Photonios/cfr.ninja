@@ -11,10 +11,10 @@ msgid "About"
 msgstr "Despre"
 
 msgid "Find train"
-msgstr "Găsește tren"
+msgstr "Caută tren"
 
-msgid "Find my train"
-msgstr "Găsește trenul meu"
+msgid "Find"
+msgstr "Caută"
 
 msgid "Route"
 msgstr "Traseu"
