@@ -1,7 +1,7 @@
 from .find import find
-from .search import search
+from .schedule import schedule
 
 __all__ = [
     'find',
-    'search'
+    'schedule'
 ]

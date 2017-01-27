@@ -1,5 +1,12 @@
-from .views import (AboutView, TrainView, SearchView, FindTrainView,
-                    StaticFileView)
+from .views import (
+    AboutView,
+    TrainView,
+    ScheduleView,
+    FindTrainView,
+    StaticFileView,
+    SearchScheduleView
+)
+
 from .routing import Url, UrlCollection
 
 urlconfig = UrlCollection([
@@ -9,9 +16,14 @@ urlconfig = UrlCollection([
         view=FindTrainView
     ),
     Url(
-        url='/search',
-        name='search',
-        view=SearchView
+        url='/schedule',
+        name='search_schedule_result',
+        view=ScheduleView
+    ),
+    Url(
+        url='/search-schedule',
+        name='search_schedule',
+        view=SearchScheduleView
     ),
     Url(
         url='/find-train',

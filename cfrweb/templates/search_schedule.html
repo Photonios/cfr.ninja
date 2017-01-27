@@ -2,9 +2,12 @@
 
 {% block content %}
 <div class="form">
-    <form action="{{ url('find_train_result_dynamic') }}"  method="get">
+    <form action="{{ url('search_schedule_result') }}"  method="get">
         <div class="text-input first">
             <input name="from" type="text" placeholder="{{ _('From') }}" autofocus/>
+        </div>
+        <div class="text-input first last">
+            <input name="via" type="text" placeholder="{{ _('Via') }}" autofocus/>
         </div>
         <div class="text-input last">
             <input name="to" type="text" placeholder="{{ _('To') }}" autofocus/>

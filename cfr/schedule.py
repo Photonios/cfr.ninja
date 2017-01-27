@@ -66,7 +66,7 @@ def _extract_trains(rows: List[bs4.element.Tag]) -> list:
     return trains
 
 
-def search(date, departure_station: str, arrival_station: str) -> List[List[dict]]:
+def schedule(date, departure_station: str, arrival_station: str) -> List[List[dict]]:
     """Finds all trains departing from the specified
     station, arroving at the specified station on
     the specified date.
