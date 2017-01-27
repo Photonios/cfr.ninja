@@ -5,11 +5,7 @@ from bs4 import BeautifulSoup
 from . import strip
 from .iter import pairwise
 from .viewstate import ViewState
-
-
-class TrainNotFound(Exception):
-    """Raises when the user entered the
-    number of a train there's no information of."""
+from .exceptions import TrainNotFound
 
 
 def _extract_info_table(document: BeautifulSoup) -> dict:
@@ -34,19 +30,19 @@ def _extract_info_table(document: BeautifulSoup) -> dict:
         values[key.text] = value.text.strip()
 
     values = {
-        'rank': strip.text(values['Rang']),
-        'number': strip.text(values['Tren']),
-        'operator': strip.text(values['Operator']),
-        'route': strip.text(values['Relatia']),
-        'state': strip.text(values['Stare']),
-        'last_info': strip.text(values['Ultima informatie']),
-        'date_time': strip.text(values['Data si ora']),
-        'delay': strip.number(values['Intarziere']),
-        'destination': strip.text(values['Statia destinatie']),
-        'arrival_at': strip.text(values['Sosire']),
-        'next_stop': strip.text(values['Urmatoarea oprire']),
-        'distance': strip.text(values['Distanta']),
-        'duration': strip.text(values['Durata calatoriei'])
+        'rank': strip.text(values['Rank']),
+        'number': strip.text(values['Train']),
+        'operator': strip.text(values['RU']),
+        'route': strip.text(values['Distance traffic']),
+        'state': strip.text(values['Status']),
+        'last_info': strip.text(values['Last information']),
+        'date_time': strip.text(values['Date and time']),
+        'delay': strip.number(values['Delay']),
+        'destination': strip.text(values['Destination station']),
+        'arrival_at': strip.text(values['Arrival']),
+        'next_stop': strip.text(values['Next stop']),
+        'distance': strip.text(values['Distance']),
+        'duration': strip.text(values['Time trip'])
     }
 
     return values
@@ -80,8 +76,7 @@ def _extract_schedule_table(document: BeautifulSoup) -> List[dict]:
             'staying_for': strip.number(columns[3].text),
             'leaving_at': strip.text(columns[4].text),
             'is_estimation': 'Estimat' in columns[5].text,
-            'delay': strip.number(columns[6].text),
-            'notes': strip.text(columns[7].text)
+            'delay': strip.number(columns[6].text)
         })
 
     return values
@@ -105,7 +100,7 @@ def find(number: str) -> dict:
     if not number:
         raise TrainNotFound()
 
-    state = ViewState('http://appiris.infofer.ro/MytrainRO.aspx')
+    state = ViewState('http://appiris.infofer.ro/MytrainEN.aspx')
 
     state.request('GET')
 

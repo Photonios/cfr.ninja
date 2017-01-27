@@ -48,5 +48,5 @@ class TrainView(TemplateView):
             })
 
             return context
-        except cfr.train.find.TrainNotFound:
+        except cfr.exceptions.TrainNotFound:
             raise web.HTTPNotFound(reason='We couldn\'t find that train')
