@@ -109,7 +109,7 @@ def find(number: str) -> dict:
         'Button1': 'Informatii tren'
     })
 
-    if 'Lipsa informatii.' in response.text:
+    if 'No informations.' in response.text:
         raise TrainNotFound()
 
     document = state.request('POST', data={
