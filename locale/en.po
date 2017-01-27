@@ -61,8 +61,8 @@ msgstr "Staying"
 msgid "We couldn't find that train"
 msgstr "We couldn't find that train"
 
-msgid "Real-time updates for {rank} {number}, on the route '{route}'."
-msgstr "Real-time updates for {rank} {number}, on the route '{route}'."
+msgid "Real-time updates for {rank}{number}, on the route '{route}'."
+msgstr "Real-time updates for {rank}{number}, on the route '{route}'."
 
 msgid "Real-time updates on trains in Romania."
 msgstr "Real-time updates on trains in Romania."

@@ -35,9 +35,10 @@ class TrainView(TemplateView):
         try:
             context = cfr.train.find(self.train_number)
 
-            meta_description = ('Real-time updates for {rank}'
+            meta_description = self.request.locale.gettext((
+                                'Real-time updates for {rank}'
                                 '{number}, on the route \'{route}\'.'
-                                ).format(**context)
+                                )).format(**context)
 
             context.update({
                 'meta': {
@@ -47,5 +48,5 @@ class TrainView(TemplateView):
             })
 
             return context
-        except cfr.train.TrainNotFound:
+        except cfr.train.find.TrainNotFound:
             raise web.HTTPNotFound(reason='We couldn\'t find that train')
