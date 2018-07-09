@@ -15,7 +15,7 @@ class TrainView(TemplateView):
 
         # if the train number is specified through
         # a GET parameter, redirect to the perma link
-        self.train_number = self.request.GET.get('train', None)
+        self.train_number = self.request.rel_url.query.get('train', None)
         if self.train_number:
             return web.HTTPMovedPermanently(
                 '/%s/train/%s' % (self.request.language, self.train_number)

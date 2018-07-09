@@ -134,6 +134,11 @@
                 margin-right: auto;
             }
 
+            #train-schedule td, th {
+                padding-left: 10px;
+                padding-right: 10px;
+            }
+
             .form {
                 max-width: 50em;
                 margin-left: auto;
@@ -207,6 +212,7 @@
                 <div class="centered-inner">
                     <div class="menu-items menu-left">
                         <li><a href="{{ url('find_train') }}">{{ _('Find train') }}</a></li>
+                        <li><a href="{{ url('search_schedule') }}">{{ _('Schedule') }}</a></li>
                         <li><a href="{{ url('about') }}">{{ _('About') }}</a></li>
                     </div>
                     <div class="menu-items menu-right">

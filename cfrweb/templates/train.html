@@ -36,7 +36,7 @@
         </tr>
         <tr>
             <th>{{ _('Next stop') }}</th>
-            <td>{{ next_stop }}</td>
+            <td>{{ next_stop or '-' }}</td>
         </tr>
         <tr>
             <th>{{ _('Last info') }}</th>
@@ -56,9 +56,13 @@
             <tr>
                 <td>{{ item.km }} km</td>
                 <td>{{ item.station }}</td>
-                <td>{{ item.arriving_at }}</td>
-                <td>{{ item.leaving_at }}</td>
-                <td>{{ item.staying_for }}m</td>
+                <td>{{ item.arriving_at or '-' }}</td>
+                <td>{{ item.leaving_at or '-' }}</td>
+                {% if item.staying_for %}
+                  <td>{{ item.delay}}m</td>
+                {% else %}
+                  <td>-</td>
+                {% endif %}
                 <td>{{ item.delay }}m</td>
             </tr>
         {% endfor %}
