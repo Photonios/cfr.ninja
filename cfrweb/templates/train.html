@@ -59,7 +59,7 @@
                 <td>{{ item.arriving_at or '-' }}</td>
                 <td>{{ item.leaving_at or '-' }}</td>
                 {% if item.staying_for %}
-                  <td>{{ item.delay}}m</td>
+                  <td>{{ item.staying_for }}m</td>
                 {% else %}
                   <td>-</td>
                 {% endif %}
