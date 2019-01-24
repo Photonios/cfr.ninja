@@ -1,8 +1,9 @@
-from typing import List
-
-from bs4 import BeautifulSoup
+import re
 import bs4
 import requests
+
+from typing import List
+from bs4 import BeautifulSoup
 
 from . import strip
 
@@ -22,6 +23,22 @@ def _extract_rows(document: BeautifulSoup) -> List[bs4.element.Tag]:
 
     rows = document.find(id='divContainer').find('table').find_all('tbody')
     return rows
+
+
+def _clean_train_number(text: str) -> str:
+    """Cleans out the text of a train number by patching
+    up excessive spacing and adding dashes where needed."""
+
+    train_rank = ''
+    train_number = ''
+
+    for c in text:
+        if c.isdigit():
+            train_number += c
+        elif c.isalpha():
+            train_rank += c
+
+    return dict(rank=train_rank, number=int(train_number))
 
 
 def _extract_trains(rows: List[bs4.element.Tag]) -> list:
@@ -52,7 +69,7 @@ def _extract_trains(rows: List[bs4.element.Tag]) -> list:
         for sub_row in row.find_all('tr'):
             columns = sub_row.find_all('td', attrs={'rowspan': None})
             new_train.append({
-                'number': strip.text(columns[1].text),
+                **_clean_train_number(columns[1].text),
                 'departure_station': strip.text(columns[2].text),
                 'arrival_station': strip.text(columns[3].text),
                 'departs_at': strip.text(columns[4].text),
