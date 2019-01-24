@@ -23,10 +23,13 @@ def _extract_info_table(document: BeautifulSoup) -> dict:
         the specified document.
     """
 
-    rows = document.find(id='DetailsView1').find_all('td')
+    rows = document.find(id='UpdatePanel1').find_all('td')
     values = dict()
 
     for key, value in pairwise(rows):
+        if not key or not value:
+            break
+
         values[key.text] = value.text.strip()
 
     values = {
@@ -100,7 +103,7 @@ def find(number: str) -> dict:
     if not number:
         raise TrainNotFound()
 
-    state = ViewState('http://appiris.infofer.ro/MytrainEN.aspx')
+    state = ViewState('https://appiris.infofer.ro/MytrainEN.aspx')
 
     state.request('GET')
 
